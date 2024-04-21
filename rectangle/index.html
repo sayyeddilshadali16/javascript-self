@@ -1,0 +1,79 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="image" onchange="setcolor()">
+        <option value="select">select</option>
+        <option value="sunrise"><img src="https://wallpapercave.com/wp/wp6497231.jpg" alt="">sunrise</option>
+        <option value="sunset"><img src="https://wallpapers.com/images/hd/red-sunset-dadicpsu85pdw66r.jpg" alt="">sunset</option>
+        <option value="night"><img src="https://images2.alphacoders.com/128/1289176.jpg" alt="">night</option>
+        <option value="flower"><img src="https://i.pinimg.com/originals/ca/c5/89/cac589e0bcbbf5cb896e8cecd39c0a9a.jpg" alt="">flower</option>
+
+    </select>
+    <script>
+        function setcolor() {
+            var a = document.getElementById("image").value;
+            if (a != "select") {
+                document.backgroundImage = a;
+                document.cookie = "image" + a;
+                alert(document.cookie);
+            }
+        }
+        window.onload = function () {
+            if (document.cookie.length != 0) {
+                var z = document.cookie.split("=");
+                document.getElementById("image").value = z[0];
+                document.backgroundImage = z[0];
+            }
+        }
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="image" onchange="setcolor()">
+        <option value="select">select</option>
+        <option value="https://wallpapercave.com/wp/wp6497231.jpg">sunrise</option>
+        <option value="https://wallpapers.com/images/hd/red-sunset-dadicpsu85pdw66r.jpg">sunset</option>
+        <option value="https://images2.alphacoders.com/128/1289176.jpg">night</option>
+        <option value="https://i.pinimg.com/originals/ca/c5/89/cac589e0bcbbf5cb896e8cecd39c0a9a.jpg">flower</option>
+    </select>
+
+    <script>
+        function setcolor() {
+            var selectedValue = document.getElementById("image").value;
+            if (selectedValue !== "select") {
+                document.body.style.backgroundImage = 'url(' + selectedValue + ')';
+                document.cookie = "image=" + selectedValue;
+                alert(document.cookie);
+            }
+        }
+
+        window.onload = function () {
+            if (document.cookie.length !== 0) {
+                var cookieArray = document.cookie.split("=");
+                var savedImage = cookieArray[1];
+                document.getElementById("image").value = savedImage;
+                document.body.style.backgroundImage = 'url(' + savedImage + ')';
+            }
+        }
+    </script>
+</body>
+
+</html>
